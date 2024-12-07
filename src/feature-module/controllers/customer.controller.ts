@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, Query } from "@nestjs/common";
 import { CustomerDto } from "../dtos/customer.dto";
-import { ApiParam, ApiQuery, ApiTags } from "@nestjs/swagger";
+import { ApiQuery, ApiTags } from "@nestjs/swagger";
 import { CustomerService } from "../services/customer.service";
 import { BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { ResponeDta } from "../schamas/responeDta.schema";
@@ -54,12 +54,13 @@ export class CustomerController {
         if(!data){return null}
         return new ResponeDta("success",data)
     }
-    @Get("profile/{id}") 
+    @Get("profile/:id") 
     public async getCustomerById(
-        @Param ("id") id :GetCusomterById
+        @Param ("id") id :number
     ):Promise<any>{
-        console.log(id);
-        
+        const Customer= this.customerService.getCustomerById(id);
+        console.log(Customer)
+        return Customer;
     }
     
 

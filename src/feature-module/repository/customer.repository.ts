@@ -6,6 +6,9 @@ import { Customer } from "../schamas/customer.schema";
 
 
 export class CustomerRepository {
+    findById(id: string): CustomerDto | PromiseLike<CustomerDto> {
+        throw new Error("Method not implemented.");
+    }
 
     constructor(
         @InjectModel('Customer') private readonly CustomerModel: Model<CustomerDto>
@@ -27,5 +30,11 @@ export class CustomerRepository {
         await this.CustomerModel.findByIdAndUpdate(id, CustomerDto);
         const customer = await this.CustomerModel.findById(id);
         return customer;
+    }
+    public async getCutomerById(id:number): Promise<CustomerDto> {
+        console.log("Repositories");
+        
+       return await this.CustomerModel.findById(id);
+
     }
 }

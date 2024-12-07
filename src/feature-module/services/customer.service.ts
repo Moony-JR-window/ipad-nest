@@ -24,4 +24,9 @@ export class CustomerService{
     public async updateCustomer(id:string, CustomerDto: CustomerDto):Promise<CustomerDto|null>{
         return this.repository.updateCustomer(id, CustomerDto);
     }
+    public async getCustomerById(id:number):Promise<CustomerDto|null>{
+        console.log("Service ");
+        
+        return this.repository.getCutomerById(id)
+    }
 }
