@@ -12,3 +12,9 @@ export class CustomerDto {
     password: string;
 
 }
+
+export class GetCusomterById{
+    @ApiProperty()
+    _id:number;
+
+}

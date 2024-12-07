@@ -54,5 +54,13 @@ export class CustomerController {
         if(!data){return null}
         return new ResponeDta("success",data)
     }
+    @Get("profile/{id}") 
+    public async getCustomerById(
+        @Param ("id") id :GetCusomterById
+    ):Promise<any>{
+        console.log(id);
+        
+    }
+    
 
 }
