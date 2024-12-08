@@ -7,11 +7,12 @@ import { CustomerController } from './feature-module/controllers/customer.contro
 import { CustomerService } from './feature-module/services/customer.service';
 import { CustomerRepository } from './feature-module/repository/customer.repository';
 import { CustomerSchema } from './feature-module/schamas/customer.schema';
+import { UserController } from './feature-module/controllers/uses.controller';
 
 
 let Provides=[CustomerService,CustomerRepository]
 
-let Controller=[CustomerController]
+let Controller=[CustomerController,UserController]
 
 const SchemaModel=[
   { name: 'Customer', schema: CustomerSchema }, // Use the actual schema
