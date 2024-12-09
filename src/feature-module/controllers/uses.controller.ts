@@ -13,6 +13,7 @@ export class UserController {
     public async createUser(@Body() user: UserDto): Promise<any> {
 
         console.log("User Data:", user);
+        
     }
 
 
