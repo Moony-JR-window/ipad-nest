@@ -18,3 +18,10 @@ export class GetCusomterById{
     _id:number;
 
 }
+
+export class login{
+    @ApiProperty()
+    phoneNumber:string
+    @ApiProperty()
+    password:string
+}

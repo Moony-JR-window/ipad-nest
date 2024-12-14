@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, Put, Query } from "@nestjs/common";
-import { CustomerDto } from "../dtos/customer.dto";
+import { CustomerDto, login } from "../dtos/customer.dto";
 import { ApiQuery, ApiTags } from "@nestjs/swagger";
 import { CustomerService } from "../services/customer.service";
 import { BadRequestException, InternalServerErrorException } from '@nestjs/common';
@@ -61,6 +61,17 @@ export class CustomerController {
         const Customer= this.customerService.getCustomerById(id);
         console.log(Customer)
         return Customer;
+    }
+
+    @Post("/login")
+    public async login(
+        @Body() data:login
+    ):Promise<any>{
+        try {
+            return this.customerService.login(data)
+        } catch (error) {
+            throw new Error("Error ")
+        }
     }
     
 

@@ -28,6 +28,7 @@
     "@nestjs/swagger": "^8.0.5",
     "@nestjs/typeorm": "^10.0.2",
     "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.1",
     "mongoose-sequence": "^6.0.1",
     "reflect-metadata": "^0.2.0",
