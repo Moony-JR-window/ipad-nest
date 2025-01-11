@@ -5,7 +5,8 @@ import { CustomerService } from "../services/customer.service";
 import { BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { ResponeDta } from "../schamas/responeDta.schema";
 
-@Controller("customer")
+
+@Controller("customer") 
 @ApiTags("Customer")
 
 export class CustomerController {
@@ -13,7 +14,6 @@ export class CustomerController {
     constructor(
         private readonly customerService: CustomerService,
     ) { }
-
 
     @Post('create')
     public async createCustomer(
@@ -42,7 +42,6 @@ export class CustomerController {
         if(!customer){return null}
         return new ResponeDta("Customer fetched successfully", customer);
     }
-
     @Put('/profile')
     @ApiQuery({ name: 'id', description: 'User ID', type: String })
     public async updateProfile(
@@ -54,5 +53,12 @@ export class CustomerController {
         if(!data){return null}
         return new ResponeDta("success",data)
     }
-
+    @Post('/delete')
+    @ApiParam({ name: 'id', description: 'User ID', type: String })
+    public async deleteCustomer(
+        @Query('id') idUser: string
+    ):Promise<ResponeDta<CustomerDto>|null>{
+        
+        return null;
+    }
 }
